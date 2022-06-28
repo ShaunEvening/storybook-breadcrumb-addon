@@ -1,3 +1,15 @@
+# v0.0.2 (Tue Jun 28 2022)
+
+#### ⚠️ Pushed to `main`
+
+- Fix build (shaun@shauns-mbp.lan)
+
+#### Authors: 1
+
+- Shaun Lloyd (shaun@shauns-mbp.lan)
+
+---
+
 # v0.0.1 (Tue Jun 28 2022)
 
 #### 🐛 Bug Fix

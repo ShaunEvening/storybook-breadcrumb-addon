@@ -1,9 +1,12 @@
 {
   "name": "storybook-addon-breadcrumbs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "show the file breadcrumbs of your components",
   "keywords": [
-    "breadcrumbs", "file path", "add-ons", "storybook-addons"
+    "breadcrumbs",
+    "file path",
+    "add-ons",
+    "storybook-addons"
   ],
   "repository": {
     "type": "git",

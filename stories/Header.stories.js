@@ -5,6 +5,9 @@ import { Header } from './Header';
 export default {
   title: 'Example/Header',
   component: Header,
+  parameters: {
+    breadcrumb: './Header',
+  }
 };
 
 const Template = (args) => <Header {...args} />;

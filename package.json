@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-breadcrumbs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "show the file breadcrumbs of your components",
   "keywords": [
     "breadcrumbs",

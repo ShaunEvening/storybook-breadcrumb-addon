@@ -6,7 +6,7 @@ export default {
   title: 'Example/Header',
   component: Header,
   parameters: {
-    breadcrumb: './Header',
+    breadcrumb: './Header.js',
   }
 };
 

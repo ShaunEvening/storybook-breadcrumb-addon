@@ -1,36 +1,54 @@
 import React from "react";
-import { useAddonState, useChannel } from "@storybook/api";
-import { AddonPanel } from "@storybook/components";
-import { ADDON_ID, EVENTS } from "./constants";
-import { PanelContent } from "./components/PanelContent";
+import { useParameter } from "@storybook/api";
+import {
+  AddonPanel,
+  Button,
+  H3,
+  Icons,
+  P,
+  Placeholder,
+} from "@storybook/components";
+
+interface BreadCrumbProps {
+  componentPath: string;
+  githubUrl: string;
+}
+
+const BreadCrumb: React.FC<BreadCrumbProps> = ({
+  componentPath,
+  githubUrl,
+}) => (
+  <Placeholder>
+    <H3>{componentPath}</H3>
+    <Button isLink primary href={githubUrl}>
+      <Icons icon="github" />
+      Component Source
+    </Button>
+  </Placeholder>
+);
+
+const BreadCrumbPlaceholder = () => (
+  <Placeholder>
+    <H3>No Breadcrumb found</H3>
+    <P>Add the component import path to your stories parameters</P>
+  </Placeholder>
+);
 
 interface PanelProps {
   active: boolean;
 }
 
 export const Panel: React.FC<PanelProps> = (props) => {
-  // https://storybook.js.org/docs/react/addons/addons-api#useaddonstate
-  const [results, setState] = useAddonState(ADDON_ID, {
-    danger: [],
-    warning: [],
-  });
-
-  // https://storybook.js.org/docs/react/addons/addons-api#usechannel
-  const emit = useChannel({
-    [EVENTS.RESULT]: (newResults) => setState(newResults),
-  });
+  const githubUrl = useParameter("githubComponentUrl", "");
+  const breadcrumb = useParameter("breadcrumb", "");
 
   return (
     <AddonPanel {...props}>
-      <PanelContent
-        results={results}
-        fetchData={() => {
-          emit(EVENTS.REQUEST);
-        }}
-        clearData={() => {
-          emit(EVENTS.CLEAR);
-        }}
-      />
+      {breadcrumb ? (
+        <BreadCrumb componentPath={breadcrumb} githubUrl={githubUrl} />
+      ) : (
+        <BreadCrumbPlaceholder />
+      )}
     </AddonPanel>
   );
 };
